@@ -1273,10 +1273,10 @@
 					//get the application array
 					if (!empty($destination_array) && !empty($row["caller_profile"]["destination_number"])) {
 						if ($this->call_direction == 'outbound' && !empty($row["caller_profile"]["username"])) {
-							$app = $this->find_app($destination_array, urldecode($row["caller_profile"]["username"]));
+							$app = $this->find_app($destination_array, is_array($username) ? urldecode(reset($username)) : urldecode($username));
 						}
 						else {
-							$app = $this->find_app($destination_array, urldecode($row["caller_profile"]["destination_number"]));
+							$app = $this->find_app($destination_array, is_array($dest_number) ? urldecode(reset($dest_number)) : urldecode($dest_number));
 						}
 					}
 
